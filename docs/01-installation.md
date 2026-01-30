@@ -1,6 +1,6 @@
-# 01. 安装 Clawdbot
+# 01. 安装 Openclaw
 
-本文档介绍如何在不同操作系统上安装 Clawdbot。
+本文档介绍如何在不同操作系统上安装 Openclaw。
 
 ## 系统要求
 
@@ -23,7 +23,7 @@ curl -fsSL https://clawd.bot/install.sh | bash
 安装脚本会自动：
 - 检测系统环境
 - 安装 Node.js（如果未安装）
-- 下载并安装 Clawdbot
+- 下载并安装 Openclaw
 - 配置环境变量
 
 ### Windows
@@ -45,12 +45,12 @@ curl -fsSL https://clawd.bot/install.bat | cmd
 如果你已经 clone 了本仓库：
 
 ```bash
-cd feishu-clawdbot-guide
+cd feishu-openclaw-guide
 ./quick-start.sh
 ```
 
 快速安装脚本会：
-1. 安装 Clawdbot（如果未安装）
+1. 安装 Openclaw（如果未安装）
 2. 自动安装飞书插件
 3. 安装插件依赖
 
@@ -78,22 +78,22 @@ nvm use 20
 
 访问 [Node.js 官网](https://nodejs.org/) 下载并安装。
 
-### 2. 使用 npm 安装 Clawdbot
+### 2. 使用 npm 安装 Openclaw
 
 ```bash
-npm install -g clawdbot
+npm install -g openclaw
 ```
 
 ### 3. 验证安装
 
 ```bash
-clawdbot --version
+openclaw --version
 ```
 
 应该看到类似输出：
 
 ```
-🦞 Clawdbot 2026.1.24-3 (885167d)
+🦞 Openclaw 2026.1.24-3 (885167d)
 ```
 
 ## 验证安装
@@ -101,7 +101,7 @@ clawdbot --version
 ### 运行初始化向导
 
 ```bash
-clawdbot onboard
+openclaw onboard
 ```
 
 这会启动交互式配置向导，帮助你：
@@ -113,7 +113,7 @@ clawdbot onboard
 ### 检查安装状态
 
 ```bash
-clawdbot doctor
+openclaw doctor
 ```
 
 这会检查：
@@ -138,7 +138,7 @@ curl -fsSL https://clawd.bot/install.sh | sudo bash
 
 ```bash
 # 方法 1：使用 npx
-npx clawdbot --version
+npx openclaw --version
 
 # 方法 2：配置 npm 全局目录
 mkdir ~/.npm-global
@@ -151,18 +151,18 @@ source ~/.bashrc
 
 **A:** 尝试以下方法：
 1. 使用管理员权限运行 PowerShell
-2. 先安装 Node.js，然后使用 `npm install -g clawdbot`
+2. 先安装 Node.js，然后使用 `npm install -g openclaw`
 3. 在 WSL2 中安装（推荐）
 
-### Q: 如何更新 Clawdbot？
+### Q: 如何更新 Openclaw？
 
 **A:** 运行：
 
 ```bash
-npm update -g clawdbot
+npm update -g openclaw
 
 # 或使用官方更新命令
-clawdbot update
+openclaw update
 ```
 
 ## 下一步
@@ -174,6 +174,6 @@ clawdbot update
 
 ## 相关资源
 
-- [Clawdbot 官方文档](https://clawd.bot)
-- [Clawdbot GitHub](https://github.com/moltbot/moltbot)
+- [Openclaw 官方文档](https://clawd.bot)
+- [Openclaw GitHub](https://github.com/moltbot/moltbot)
 - [Node.js 官网](https://nodejs.org/)

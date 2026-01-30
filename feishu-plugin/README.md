@@ -1,4 +1,4 @@
-# 飞书 Clawdbot 插件
+# 飞书 Openclaw 插件
 
 飞书（Feishu/Lark）频道插件，使用**长连接（WebSocket）**接收事件。
 
@@ -24,10 +24,10 @@
 
 ```bash
 # 复制文件
-cp -r feishu-plugin ~/.clawdbot/extensions/feishu
+cp -r feishu-plugin ~/.openclaw/extensions/feishu
 
 # 安装依赖
-cd ~/.clawdbot/extensions/feishu
+cd ~/.openclaw/extensions/feishu
 npm install
 ```
 
@@ -35,7 +35,7 @@ npm install
 
 ```
 feishu-plugin/
-├── clawdbot.plugin.json    # 插件清单
+├── openclaw.plugin.json    # 插件清单
 ├── package.json             # 依赖配置
 ├── index.ts                 # 插件入口
 ├── README.md                # 本文件
@@ -93,11 +93,11 @@ export default plugin;
 
 ### src/runtime.ts
 
-Runtime 管理，提供对 Clawdbot 核心功能的访问。
+Runtime 管理，提供对 Openclaw 核心功能的访问。
 
 ## 配置
 
-在 `~/.clawdbot/clawdbot.json` 中配置：
+在 `~/.openclaw/openclaw.json` 中配置：
 
 ```json
 {
@@ -126,14 +126,14 @@ Runtime 管理，提供对 Clawdbot 核心功能的访问。
 
 ```bash
 # 链接到开发目录
-ln -s /path/to/feishu-clawdbot-guide/feishu-plugin ~/.clawdbot/extensions/feishu
+ln -s /path/to/feishu-openclaw-guide/feishu-plugin ~/.openclaw/extensions/feishu
 
 # 安装依赖
-cd ~/.clawdbot/extensions/feishu
+cd ~/.openclaw/extensions/feishu
 npm install
 
 # 启动 Gateway（会自动加载插件）
-clawdbot gateway --verbose
+openclaw gateway --verbose
 ```
 
 ### 调试
@@ -141,7 +141,7 @@ clawdbot gateway --verbose
 查看插件日志：
 
 ```bash
-tail -f /tmp/clawdbot/clawdbot-$(date +%Y-%m-%d).log | grep feishu
+tail -f /tmp/openclaw/openclaw-$(date +%Y-%m-%d).log | grep feishu
 ```
 
 ### 修改插件
@@ -149,14 +149,14 @@ tail -f /tmp/clawdbot/clawdbot-$(date +%Y-%m-%d).log | grep feishu
 修改源代码后，重启 Gateway 即可生效：
 
 ```bash
-clawdbot gateway stop
-clawdbot gateway --verbose
+openclaw gateway stop
+openclaw gateway --verbose
 ```
 
 ## 依赖
 
 - `@larksuiteoapi/node-sdk`: 飞书官方 Node.js SDK
-- `clawdbot/plugin-sdk`: Clawdbot 插件 SDK（由 Clawdbot 提供）
+- `openclaw/plugin-sdk`: Openclaw 插件 SDK（由 Openclaw 提供）
 
 ## 许可证
 
@@ -166,4 +166,4 @@ MIT License
 
 - [飞书开放平台](https://open.feishu.cn)
 - [飞书 Node.js SDK](https://github.com/larksuite/node-sdk)
-- [Clawdbot 文档](https://clawd.bot)
+- [Openclaw 文档](https://clawd.bot)

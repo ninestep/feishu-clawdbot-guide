@@ -1,16 +1,16 @@
 # 配置文件示例
 
-本目录包含 Clawdbot 配置文件示例。
+本目录包含 Openclaw 配置文件示例。
 
 ## 文件说明
 
-- **[clawdbot.json](clawdbot.json)** - 完整配置示例
+- **[openclaw.json](openclaw.json)** - 完整配置示例
   - 包含所有推荐配置项
   - 支持多个模型
   - 配置了消息防抖
   - 适合生产环境
 
-- **[clawdbot.minimal.json](clawdbot.minimal.json)** - 最小配置示例
+- **[openclaw.minimal.json](openclaw.minimal.json)** - 最小配置示例
   - 只包含必需配置项
   - 快速开始使用
   - 适合测试和学习
@@ -29,16 +29,16 @@
 
 ```bash
 # 复制最小配置
-cp config-examples/clawdbot.minimal.json ~/.clawdbot/clawdbot.json
+cp config-examples/openclaw.minimal.json ~/.openclaw/openclaw.json
 
 # 或复制完整配置
-cp config-examples/clawdbot.json ~/.clawdbot/clawdbot.json
+cp config-examples/openclaw.json ~/.openclaw/openclaw.json
 ```
 
 ### 方法三：手动编辑
 
 ```bash
-nano ~/.clawdbot/clawdbot.json
+nano ~/.openclaw/openclaw.json
 ```
 
 ## 配置项说明
@@ -265,13 +265,13 @@ nano ~/.clawdbot/clawdbot.json
 运行诊断命令：
 
 ```bash
-clawdbot doctor
+openclaw doctor
 ```
 
 或验证 JSON 格式：
 
 ```bash
-cat ~/.clawdbot/clawdbot.json | python -m json.tool
+cat ~/.openclaw/openclaw.json | python -m json.tool
 ```
 
 ## 相关文档

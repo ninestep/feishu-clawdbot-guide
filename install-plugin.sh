@@ -28,8 +28,8 @@ if [ ! -d "$SCRIPT_DIR/feishu-plugin" ]; then
 fi
 
 # 目标目录
-TARGET_DIR="$HOME/.clawdbot/extensions/feishu"
-BACKUP_DIR="$HOME/.clawdbot/extensions/feishu.backup.$(date +%Y%m%d_%H%M%S)"
+TARGET_DIR="$HOME/.openclaw/extensions/feishu"
+BACKUP_DIR="$HOME/.openclaw/extensions/feishu.backup.$(date +%Y%m%d_%H%M%S)"
 
 # 如果目标目录已存在，备份
 if [ -d "$TARGET_DIR" ]; then
@@ -83,7 +83,7 @@ echo "================================================"
 echo ""
 
 # 检查配置文件
-CONFIG_FILE="$HOME/.clawdbot/clawdbot.json"
+CONFIG_FILE="$HOME/.openclaw/openclaw.json"
 
 if [ ! -f "$CONFIG_FILE" ]; then
     echo -e "${YELLOW}⚠ 未找到配置文件${NC}"
@@ -110,6 +110,6 @@ echo "1. 配置飞书信息（如果还未配置）："
 echo -e "   ${GREEN}./configure.sh${NC}"
 echo ""
 echo "2. 重启 Gateway："
-echo -e "   ${GREEN}clawdbot gateway stop${NC}"
-echo -e "   ${GREEN}clawdbot gateway --verbose${NC}"
+echo -e "   ${GREEN}openclaw gateway stop${NC}"
+echo -e "   ${GREEN}openclaw gateway --verbose${NC}"
 echo ""

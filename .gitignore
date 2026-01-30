@@ -35,9 +35,9 @@ dist/
 build/
 out/
 
-# Clawdbot specific
-.clawdbot/
-clawdbot.json
+# Openclaw specific
+.openclaw/
+openclaw.json
 
 # Backup files
 *.backup

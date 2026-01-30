@@ -2,12 +2,12 @@
  * 飞书消息发送
  */
 import * as Lark from "@larksuiteoapi/node-sdk";
-import type { ClawdbotConfig } from "clawdbot/plugin-sdk";
+import type { OpenclawConfig } from "openclaw/plugin-sdk";
 
 export type SendFeishuMessageOpts = {
   accountId?: string;
   replyToId?: string;
-  cfg?: ClawdbotConfig;
+  cfg?: OpenclawConfig;
 };
 
 /**

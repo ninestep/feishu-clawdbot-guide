@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# 飞书 Clawdbot 一键安装脚本
-# 自动安装 Clawdbot 和飞书插件
+# 飞书 Openclaw 一键安装脚本
+# 自动安装 Openclaw 和飞书插件
 
 set -e
 
 echo "================================================"
-echo "🦞 飞书 Clawdbot 一键安装脚本"
+echo "🦞 飞书 Openclaw 一键安装脚本"
 echo "================================================"
 echo ""
 
@@ -34,14 +34,14 @@ OS=$(detect_os)
 echo -e "${BLUE}检测到操作系统: $OS${NC}"
 echo ""
 
-# 检查 Clawdbot 是否已安装
-if command -v clawdbot &> /dev/null; then
-    CLAWDBOT_VERSION=$(clawdbot --version 2>&1 | head -n 1 || echo "unknown")
-    echo -e "${GREEN}✓ Clawdbot 已安装: $CLAWDBOT_VERSION${NC}"
+# 检查 Openclaw 是否已安装
+if command -v openclaw &> /dev/null; then
+    OPENCLAW_VERSION=$(openclaw --version 2>&1 | head -n 1 || echo "unknown")
+    echo -e "${GREEN}✓ Openclaw 已安装: $OPENCLAW_VERSION${NC}"
 else
-    echo -e "${YELLOW}⚠ Clawdbot 未安装${NC}"
+    echo -e "${YELLOW}⚠ Openclaw 未安装${NC}"
     echo ""
-    echo "正在安装 Clawdbot..."
+    echo "正在安装 Openclaw..."
     echo ""
     
     # 使用官方安装脚本
@@ -57,12 +57,12 @@ else
         curl -fsSL https://clawd.bot/install.sh | bash
         
         # 重新加载环境变量
-        export PATH="$HOME/.clawdbot/bin:$PATH"
+        export PATH="$HOME/.openclaw/bin:$PATH"
         
-        if command -v clawdbot &> /dev/null; then
-            echo -e "${GREEN}✓ Clawdbot 安装成功！${NC}"
+        if command -v openclaw &> /dev/null; then
+            echo -e "${GREEN}✓ Openclaw 安装成功！${NC}"
         else
-            echo -e "${RED}✗ Clawdbot 安装失败，请手动安装${NC}"
+            echo -e "${RED}✗ Openclaw 安装失败，请手动安装${NC}"
             echo "访问：https://clawd.bot"
             exit 1
         fi
@@ -86,7 +86,7 @@ if [ ! -d "$SCRIPT_DIR/feishu-plugin" ]; then
 fi
 
 # 目标目录
-TARGET_DIR="$HOME/.clawdbot/extensions/feishu"
+TARGET_DIR="$HOME/.openclaw/extensions/feishu"
 
 # 创建目标目录
 mkdir -p "$TARGET_DIR"
@@ -121,10 +121,10 @@ echo "1. 运行配置向导（交互式配置）："
 echo -e "   ${GREEN}./configure.sh${NC}"
 echo ""
 echo "2. 或手动编辑配置文件："
-echo -e "   ${GREEN}nano ~/.clawdbot/clawdbot.json${NC}"
+echo -e "   ${GREEN}nano ~/.openclaw/openclaw.json${NC}"
 echo ""
 echo "3. 启动 Gateway："
-echo -e "   ${GREEN}clawdbot gateway --verbose${NC}"
+echo -e "   ${GREEN}openclaw gateway --verbose${NC}"
 echo ""
 echo -e "${YELLOW}📖 完整文档：${NC}docs/ 目录"
 echo ""

@@ -4,12 +4,12 @@
 
 ## 诊断工具
 
-### 1. Clawdbot Doctor
+### 1. Openclaw Doctor
 
 运行诊断命令：
 
 ```bash
-clawdbot doctor
+openclaw doctor
 ```
 
 会检查：
@@ -22,28 +22,28 @@ clawdbot doctor
 
 ```bash
 # 实时日志
-tail -f /tmp/clawdbot/clawdbot-$(date +%Y-%m-%d).log
+tail -f /tmp/openclaw/openclaw-$(date +%Y-%m-%d).log
 
 # 只看飞书相关
-tail -f /tmp/clawdbot/clawdbot-$(date +%Y-%m-%d).log | grep feishu
+tail -f /tmp/openclaw/openclaw-$(date +%Y-%m-%d).log | grep feishu
 
 # 只看错误
-tail -f /tmp/clawdbot/clawdbot-$(date +%Y-%m-%d).log | grep -i error
+tail -f /tmp/openclaw/openclaw-$(date +%Y-%m-%d).log | grep -i error
 ```
 
 ### 3. 检查配置
 
 ```bash
 # 验证 JSON 格式
-cat ~/.clawdbot/clawdbot.json | python -m json.tool
+cat ~/.openclaw/openclaw.json | python -m json.tool
 
 # 查看飞书配置
-cat ~/.clawdbot/clawdbot.json | grep -A 10 feishu
+cat ~/.openclaw/openclaw.json | grep -A 10 feishu
 ```
 
 ## 安装问题
 
-### Clawdbot 安装失败
+### Openclaw 安装失败
 
 **症状：**
 ```
@@ -59,7 +59,7 @@ curl: (7) Failed to connect to clawd.bot
    ```
 3. 或手动安装：
    ```bash
-   npm install -g clawdbot
+   npm install -g openclaw
    ```
 
 ### npm 权限错误
@@ -78,7 +78,7 @@ echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 
 # 方法 2：使用 npx
-npx clawdbot --version
+npx openclaw --version
 ```
 
 ## 配置问题
@@ -87,13 +87,13 @@ npx clawdbot --version
 
 **症状：**
 ```
-Invalid config at ~/.clawdbot/clawdbot.json
+Invalid config at ~/.openclaw/openclaw.json
 ```
 
 **解决方法：**
 1. 验证 JSON 格式：
    ```bash
-   cat ~/.clawdbot/clawdbot.json | python -m json.tool
+   cat ~/.openclaw/openclaw.json | python -m json.tool
    ```
 2. 或使用在线工具：https://jsonlint.com/
 3. 参考示例配置：[config-examples/](../config-examples/)
@@ -135,11 +135,11 @@ authentication_error: Invalid API key
 **解决方法：**
 1. 检查插件目录：
    ```bash
-   ls ~/.clawdbot/extensions/feishu/
+   ls ~/.openclaw/extensions/feishu/
    ```
 2. 检查配置：
    ```bash
-   cat ~/.clawdbot/clawdbot.json | grep -A 5 '"plugins"'
+   cat ~/.openclaw/openclaw.json | grep -A 5 '"plugins"'
    ```
 3. 重新安装插件：
    ```bash
@@ -155,7 +155,7 @@ Error: Cannot find module '@larksuiteoapi/node-sdk'
 
 **解决方法：**
 ```bash
-cd ~/.clawdbot/extensions/feishu
+cd ~/.openclaw/extensions/feishu
 npm install
 ```
 
@@ -171,7 +171,7 @@ SyntaxError: Unexpected token 'export'
 2. 检查 `package.json` 中的 `"type": "module"`
 3. 清理并重新安装：
    ```bash
-   cd ~/.clawdbot/extensions/feishu
+   cd ~/.openclaw/extensions/feishu
    rm -rf node_modules package-lock.json
    npm install
    ```
@@ -188,13 +188,13 @@ Gateway failed to start: gateway already running (pid XXX)
 **解决方法：**
 ```bash
 # 停止现有 Gateway
-clawdbot gateway stop
+openclaw gateway stop
 
 # 如果停止失败，手动 kill
 kill <pid>
 
 # 重新启动
-clawdbot gateway --verbose
+openclaw gateway --verbose
 ```
 
 ### 端口被占用
@@ -227,7 +227,7 @@ Gateway 启动后几秒钟就退出
 **解决方法：**
 1. 查看完整日志：
    ```bash
-   clawdbot gateway --verbose
+   openclaw gateway --verbose
    ```
 2. 检查配置文件错误
 3. 确认所有依赖已安装
@@ -242,7 +242,7 @@ Gateway 启动后几秒钟就退出
 **解决方法：**
 1. **先启动 Gateway**：
    ```bash
-   clawdbot gateway --verbose
+   openclaw gateway --verbose
    ```
 2. 等待看到：
    ```
@@ -261,7 +261,7 @@ Gateway 启动后几秒钟就退出
 
 1. **检查长连接状态**
    ```bash
-   tail -f /tmp/clawdbot/clawdbot-$(date +%Y-%m-%d).log | grep feishu
+   tail -f /tmp/openclaw/openclaw-$(date +%Y-%m-%d).log | grep feishu
    ```
    应该看到 `[feishu] 长连接已连接`
 
@@ -290,8 +290,8 @@ Gateway 启动后几秒钟就退出
 
 1. **检查配对**（如果使用 pairing）
    ```bash
-   clawdbot pairing list
-   clawdbot pairing approve feishu <code>
+   openclaw pairing list
+   openclaw pairing approve feishu <code>
    ```
 
 2. **检查模型配置**
@@ -358,7 +358,7 @@ Gateway 启动后几秒钟就退出
 
 ### 社区支持
 
-- **Discord**：[Moltbot Discord](https://discord.gg/clawdbot)
+- **Discord**：[Moltbot Discord](https://discord.gg/openclaw)
 - **GitHub**：[moltbot/moltbot](https://github.com/moltbot/moltbot)
 - **文档**：[clawd.bot](https://clawd.bot)
 
@@ -368,19 +368,19 @@ Gateway 启动后几秒钟就退出
 
 1. **环境信息**
    ```bash
-   clawdbot --version
+   openclaw --version
    node --version
    uname -a
    ```
 
 2. **配置文件**（隐去敏感信息）
    ```bash
-   cat ~/.clawdbot/clawdbot.json
+   cat ~/.openclaw/openclaw.json
    ```
 
 3. **日志**
    ```bash
-   tail -n 100 /tmp/clawdbot/clawdbot-$(date +%Y-%m-%d).log
+   tail -n 100 /tmp/openclaw/openclaw-$(date +%Y-%m-%d).log
    ```
 
 4. **重现步骤**
@@ -392,10 +392,10 @@ Gateway 启动后几秒钟就退出
 
 ```bash
 # 创建调试信息包
-mkdir ~/clawdbot-debug
-cp ~/.clawdbot/clawdbot.json ~/clawdbot-debug/ 
-cp /tmp/clawdbot/*.log ~/clawdbot-debug/
-tar -czf ~/clawdbot-debug.tar.gz ~/clawdbot-debug/
+mkdir ~/openclaw-debug
+cp ~/.openclaw/openclaw.json ~/openclaw-debug/ 
+cp /tmp/openclaw/*.log ~/openclaw-debug/
+tar -czf ~/openclaw-debug.tar.gz ~/openclaw-debug/
 
 # 记得隐去敏感信息！
 ```
@@ -404,24 +404,24 @@ tar -czf ~/clawdbot-debug.tar.gz ~/clawdbot-debug/
 
 ```bash
 # 诊断
-clawdbot doctor
+openclaw doctor
 
 # 查看状态
-clawdbot gateway status
+openclaw gateway status
 
 # 启动/停止
-clawdbot gateway --verbose
-clawdbot gateway stop
+openclaw gateway --verbose
+openclaw gateway stop
 
 # 查看日志
-tail -f /tmp/clawdbot/clawdbot-$(date +%Y-%m-%d).log
+tail -f /tmp/openclaw/openclaw-$(date +%Y-%m-%d).log
 
 # 配对管理
-clawdbot pairing list
-clawdbot pairing approve feishu <code>
+openclaw pairing list
+openclaw pairing approve feishu <code>
 
 # 更新
-clawdbot update
+openclaw update
 ```
 
 ## 下一步

@@ -1,10 +1,10 @@
-# 飞书 Clawdbot 配置指南
+# 飞书 Openclaw 配置指南
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Clawdbot](https://img.shields.io/badge/Clawdbot-2026.1-blue.svg)](https://clawd.bot)
+[![Openclaw](https://img.shields.io/badge/Openclaw-2026.1-blue.svg)](https://clawd.bot)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-> 🦞 一键配置 Clawdbot 接入飞书，让你的 AI 助手在飞书中工作
+> 🦞 一键配置 Openclaw 接入飞书，让你的 AI 助手在飞书中工作
 
 ## ✨ 特色
 
@@ -26,17 +26,17 @@
 
 ```bash
 # 1. Clone 仓库
-git clone https://github.com/YOUR_USERNAME/feishu-clawdbot-guide.git
-cd feishu-clawdbot-guide
+git clone https://github.com/YOUR_USERNAME/feishu-openclaw-guide.git
+cd feishu-openclaw-guide
 
-# 2. 一键安装（自动安装 Clawdbot 和插件）
+# 2. 一键安装（自动安装 Openclaw 和插件）
 ./quick-start.sh
 
 # 3. 配置向导（交互式配置 API 和飞书信息）
 ./configure.sh
 
 # 4. 启动 Gateway
-clawdbot gateway --verbose
+openclaw gateway --verbose
 ```
 
 ### 配置飞书后台
@@ -69,30 +69,30 @@ Gateway 启动后，访问 [飞书开放平台](https://open.feishu.cn/app)：
 
 ```bash
 # 批准配对
-clawdbot pairing approve feishu <配对码>
+openclaw pairing approve feishu <配对码>
 ```
 
 ## 📁 项目结构
 
 ```
-feishu-clawdbot-guide/
+feishu-openclaw-guide/
 ├── README.md                  # 本文件
 ├── quick-start.sh             # 🚀 一键安装脚本
 ├── configure.sh               # ⚙️ 配置向导脚本
 ├── install-plugin.sh          # 📦 插件安装脚本
 ├── docs/                      # 📖 详细文档
-│   ├── 01-installation.md            # 安装 Clawdbot
+│   ├── 01-installation.md            # 安装 Openclaw
 │   ├── 02-model-configuration.md     # 配置模型提供商
 │   ├── 03-feishu-app-setup.md        # 创建飞书应用
 │   ├── 04-plugin-installation.md     # 安装飞书插件
 │   ├── 05-gateway-setup.md           # 启动和配置 Gateway
 │   └── 06-troubleshooting.md         # 故障排查
 ├── config-examples/           # 📝 配置文件示例
-│   ├── clawdbot.json                 # 完整配置示例
-│   ├── clawdbot.minimal.json         # 最小配置示例
+│   ├── openclaw.json                 # 完整配置示例
+│   ├── openclaw.minimal.json         # 最小配置示例
 │   └── README.md                      # 配置说明
 ├── feishu-plugin/             # 📁 飞书插件源代码
-│   ├── clawdbot.plugin.json
+│   ├── openclaw.plugin.json
 │   ├── package.json
 │   ├── index.ts
 │   └── src/
@@ -107,7 +107,7 @@ feishu-clawdbot-guide/
 
 ### 安装与配置
 
-- [01. 安装 Clawdbot](docs/01-installation.md)
+- [01. 安装 Openclaw](docs/01-installation.md)
 - [02. 配置模型提供商](docs/02-model-configuration.md)（Claude API / 中转站 / 本地模型）
 - [03. 创建飞书应用](docs/03-feishu-app-setup.md)
 - [04. 安装飞书插件](docs/04-plugin-installation.md)
@@ -126,7 +126,7 @@ feishu-clawdbot-guide/
 
 如果你想手动配置而不使用自动化脚本：
 
-### 1. 安装 Clawdbot
+### 1. 安装 Openclaw
 
 ```bash
 curl -fsSL https://clawd.bot/install.sh | bash
@@ -135,19 +135,19 @@ curl -fsSL https://clawd.bot/install.sh | bash
 ### 2. 复制插件
 
 ```bash
-cp -r feishu-plugin ~/.clawdbot/extensions/feishu
-cd ~/.clawdbot/extensions/feishu
+cp -r feishu-plugin ~/.openclaw/extensions/feishu
+cd ~/.openclaw/extensions/feishu
 npm install
 ```
 
 ### 3. 编辑配置
 
-编辑 `~/.clawdbot/clawdbot.json`，参考 [config-examples/clawdbot.json](config-examples/clawdbot.json)
+编辑 `~/.openclaw/openclaw.json`，参考 [config-examples/openclaw.json](config-examples/openclaw.json)
 
 ### 4. 启动
 
 ```bash
-clawdbot gateway --verbose
+openclaw gateway --verbose
 ```
 
 ## ❓ 常见问题
@@ -176,16 +176,16 @@ clawdbot gateway --verbose
 ```bash
 git pull
 ./install-plugin.sh
-clawdbot gateway stop
-clawdbot gateway --verbose
+openclaw gateway stop
+openclaw gateway --verbose
 ```
 
 ### Q: 遇到问题怎么办？
 
 **A:** 查看 [故障排查文档](docs/06-troubleshooting.md) 或：
-- 查看日志：`tail -f /tmp/clawdbot/clawdbot-$(date +%Y-%m-%d).log`
-- 运行诊断：`clawdbot doctor`
-- 访问社区：[Moltbot Discord](https://discord.gg/clawdbot)
+- 查看日志：`tail -f /tmp/openclaw/openclaw-$(date +%Y-%m-%d).log`
+- 运行诊断：`openclaw doctor`
+- 访问社区：[Moltbot Discord](https://discord.gg/openclaw)
 
 ## 🤝 贡献
 
@@ -205,7 +205,7 @@ MIT License - 查看 [LICENSE](LICENSE) 文件了解详情
 
 ## 🙏 致谢
 
-- [Moltbot/Clawdbot](https://clawd.bot) - 强大的个人 AI 助手框架
+- [Moltbot/Openclaw](https://clawd.bot) - 强大的个人 AI 助手框架
 - [飞书开放平台](https://open.feishu.cn) - 提供开放平台能力
 - 社区贡献者
 
@@ -215,8 +215,8 @@ MIT License - 查看 [LICENSE](LICENSE) 文件了解详情
 
 ## 🔗 相关链接
 
-- [Clawdbot 官网](https://clawd.bot)
-- [Clawdbot GitHub](https://github.com/moltbot/moltbot)
+- [Openclaw 官网](https://clawd.bot)
+- [Openclaw GitHub](https://github.com/moltbot/moltbot)
 - [飞书开放平台](https://open.feishu.cn)
 - [飞书开放平台文档](https://open.feishu.cn/document)
 

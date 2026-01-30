@@ -4,7 +4,7 @@
  * 选择「使用长连接接收事件」时，无需公网域名、无需加密策略，事件通过 SDK 的 WebSocket 通道推送。
  */
 import * as Lark from "@larksuiteoapi/node-sdk";
-import type { ChannelGatewayContext, PluginRuntime } from "clawdbot/plugin-sdk";
+import type { ChannelGatewayContext, PluginRuntime } from "openclaw/plugin-sdk";
 import { getFeishuRuntime } from "./runtime.js";
 import { sendMessageFeishu } from "./send.js";
 

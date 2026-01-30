@@ -1,10 +1,10 @@
 # 05. 启动和配置 Gateway
 
-本文档介绍如何启动 Clawdbot Gateway 并完成飞书长连接配置。
+本文档介绍如何启动 Openclaw Gateway 并完成飞书长连接配置。
 
 ## Gateway 简介
 
-Gateway 是 Clawdbot 的核心服务，负责：
+Gateway 是 Openclaw 的核心服务，负责：
 - 管理所有频道连接（Telegram、飞书等）
 - 处理消息路由
 - 运行 AI 模型
@@ -15,13 +15,13 @@ Gateway 是 Clawdbot 的核心服务，负责：
 ### 基础启动
 
 ```bash
-clawdbot gateway
+openclaw gateway
 ```
 
 ### 详细日志模式（推荐）
 
 ```bash
-clawdbot gateway --verbose
+openclaw gateway --verbose
 ```
 
 详细模式会显示：
@@ -34,11 +34,11 @@ clawdbot gateway --verbose
 
 ```bash
 # macOS / Linux
-nohup clawdbot gateway &
+nohup openclaw gateway &
 
 # 或使用 screen
-screen -S clawdbot
-clawdbot gateway --verbose
+screen -S openclaw
+openclaw gateway --verbose
 # 按 Ctrl+A, D 分离会话
 ```
 
@@ -49,7 +49,7 @@ clawdbot gateway --verbose
 **⚠️ 重要：必须先启动 Gateway！**
 
 ```bash
-clawdbot gateway --verbose
+openclaw gateway --verbose
 ```
 
 等待看到：
@@ -100,14 +100,14 @@ clawdbot gateway --verbose
 在飞书中给机器人发送消息，会收到：
 
 ```
-Clawdbot: access not configured.
+Openclaw: access not configured.
 
 Your Feishu user id: ou_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Pairing code: ABCD1234
 
 Ask the bot owner to approve with:
-clawdbot pairing approve feishu <code>
+openclaw pairing approve feishu <code>
 ```
 
 ### 2. 批准配对
@@ -115,7 +115,7 @@ clawdbot pairing approve feishu <code>
 在终端运行：
 
 ```bash
-clawdbot pairing approve feishu ABCD1234
+openclaw pairing approve feishu ABCD1234
 ```
 
 应该看到：
@@ -133,46 +133,46 @@ Approved feishu sender ou_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
 ### 查看状态
 
 ```bash
-clawdbot gateway status
+openclaw gateway status
 ```
 
 ### 停止 Gateway
 
 ```bash
-clawdbot gateway stop
+openclaw gateway stop
 ```
 
 ### 重启 Gateway
 
 ```bash
-clawdbot gateway stop
-clawdbot gateway --verbose
+openclaw gateway stop
+openclaw gateway --verbose
 ```
 
 ### 查看日志
 
 ```bash
 # 实时日志
-tail -f /tmp/clawdbot/clawdbot-$(date +%Y-%m-%d).log
+tail -f /tmp/openclaw/openclaw-$(date +%Y-%m-%d).log
 
 # 只看飞书相关日志
-tail -f /tmp/clawdbot/clawdbot-$(date +%Y-%m-%d).log | grep feishu
+tail -f /tmp/openclaw/openclaw-$(date +%Y-%m-%d).log | grep feishu
 
 # 查看历史日志
-ls /tmp/clawdbot/
+ls /tmp/openclaw/
 ```
 
 ### 诊断问题
 
 ```bash
-clawdbot doctor
+openclaw doctor
 ```
 
 ## 配置文件位置
 
-- **主配置文件**：`~/.clawdbot/clawdbot.json`
-- **插件目录**：`~/.clawdbot/extensions/`
-- **日志目录**：`/tmp/clawdbot/`
+- **主配置文件**：`~/.openclaw/openclaw.json`
+- **插件目录**：`~/.openclaw/extensions/`
+- **日志目录**：`/tmp/openclaw/`
 - **工作空间**：`~/clawd/` （默认）
 
 ## 测试流程
@@ -245,7 +245,7 @@ AI：（应该能理解上下文）
 ### Q: Gateway 启动后立即退出
 
 **A:** 可能原因：
-1. **配置文件错误** → 运行 `clawdbot doctor`
+1. **配置文件错误** → 运行 `openclaw doctor`
 2. **端口被占用** → 修改配置中的 `gateway.port`
 3. **权限问题** → 检查文件权限
 
@@ -253,7 +253,7 @@ AI：（应该能理解上下文）
 
 **A:** 必须先启动 Gateway：
 ```bash
-clawdbot gateway --verbose
+openclaw gateway --verbose
 # 等待看到 "[feishu] 长连接已连接"
 # 然后去飞书后台保存
 ```
@@ -311,6 +311,6 @@ Gateway 配置完成后：
 
 ## 相关资源
 
-- [Clawdbot 官方文档](https://clawd.bot)
+- [Openclaw 官方文档](https://clawd.bot)
 - [配置文件示例](../config-examples/)
 - [故障排查](06-troubleshooting.md)

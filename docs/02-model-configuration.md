@@ -1,6 +1,6 @@
 # 02. 配置模型提供商
 
-Clawdbot 支持多种 AI 模型提供商。本文档介绍如何配置不同的 API。
+Openclaw 支持多种 AI 模型提供商。本文档介绍如何配置不同的 API。
 
 ## 支持的 API 类型
 
@@ -25,7 +25,7 @@ Clawdbot 支持多种 AI 模型提供商。本文档介绍如何配置不同的 
 
 ### 方法二：手动编辑配置文件
 
-编辑 `~/.clawdbot/clawdbot.json`：
+编辑 `~/.openclaw/openclaw.json`：
 
 ## 配置示例
 
@@ -217,7 +217,7 @@ ollama pull llama3.1:70b
 ### 1. 验证配置文件
 
 ```bash
-clawdbot doctor
+openclaw doctor
 ```
 
 ### 2. 测试模型连接
@@ -225,7 +225,7 @@ clawdbot doctor
 启动 Gateway 并查看日志：
 
 ```bash
-clawdbot gateway --verbose
+openclaw gateway --verbose
 ```
 
 应该看到类似输出：

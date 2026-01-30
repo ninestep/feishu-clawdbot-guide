@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# 飞书 Clawdbot 配置向导
+# 飞书 Openclaw 配置向导
 # 交互式配置 API 和飞书信息
 
 set -e
 
 echo "================================================"
-echo "⚙️  飞书 Clawdbot 配置向导"
+echo "⚙️  飞书 Openclaw 配置向导"
 echo "================================================"
 echo ""
 
@@ -17,8 +17,8 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m'
 
-CONFIG_FILE="$HOME/.clawdbot/clawdbot.json"
-BACKUP_FILE="$HOME/.clawdbot/clawdbot.json.backup.$(date +%Y%m%d_%H%M%S)"
+CONFIG_FILE="$HOME/.openclaw/openclaw.json"
+BACKUP_FILE="$HOME/.openclaw/openclaw.json.backup.$(date +%Y%m%d_%H%M%S)"
 
 # 检查配置文件是否存在
 if [ -f "$CONFIG_FILE" ]; then
@@ -146,7 +146,7 @@ echo "================================================"
 echo ""
 
 # 确保目录存在
-mkdir -p "$HOME/.clawdbot"
+mkdir -p "$HOME/.openclaw"
 
 # 生成配置文件
 cat > "$CONFIG_FILE" << EOF
@@ -209,7 +209,7 @@ echo ""
 echo -e "${BLUE}下一步：${NC}"
 echo ""
 echo "1. 启动 Gateway："
-echo -e "   ${GREEN}clawdbot gateway --verbose${NC}"
+echo -e "   ${GREEN}openclaw gateway --verbose${NC}"
 echo ""
 echo "2. 在飞书开放平台配置长连接："
 echo "   - 访问：https://open.feishu.cn/app"

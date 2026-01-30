@@ -1,9 +1,9 @@
 {
-  "name": "@clawdbot/feishu",
+  "name": "@openclaw/feishu",
   "version": "0.1.0",
   "type": "module",
-  "description": "Clawdbot 飞书频道插件",
-  "clawdbot": {
+  "description": "Openclaw 飞书频道插件",
+  "openclaw": {
     "extensions": [
       "./index.ts"
     ]

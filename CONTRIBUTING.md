@@ -14,7 +14,7 @@
    - 详细的问题描述
    - 重现步骤
    - 预期行为和实际行为
-   - 环境信息（OS、Node.js 版本、Clawdbot 版本）
+   - 环境信息（OS、Node.js 版本、Openclaw 版本）
    - 相关日志（记得隐去敏感信息）
 
 ### 提出新功能
@@ -104,7 +104,7 @@
 
 - 创建 Issue
 - 在 Pull Request 中讨论
-- 加入 [Moltbot Discord](https://discord.gg/clawdbot)
+- 加入 [Moltbot Discord](https://discord.gg/openclaw)
 
 ---
 

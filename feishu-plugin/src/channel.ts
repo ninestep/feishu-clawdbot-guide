@@ -1,4 +1,4 @@
-import type { ChannelPlugin } from "clawdbot/plugin-sdk";
+import type { ChannelPlugin } from "openclaw/plugin-sdk";
 import { getFeishuRuntime } from "./runtime.js";
 import { startFeishuWs } from "./feishu-ws.js";
 
@@ -101,7 +101,7 @@ export const feishuPlugin: ChannelPlugin<FeishuAccount> = {
       allowFrom: (cfg.channels?.feishu as any)?.allowFrom ?? [],
       policyPath: "channels.feishu.dmPolicy",
       allowFromPath: "channels.feishu.",
-      approveHint: "clawdbot pairing approve feishu <code>",
+      approveHint: "openclaw pairing approve feishu <code>",
       normalizeEntry: (raw) => raw.trim(),
     }),
     collectWarnings: () => [],
